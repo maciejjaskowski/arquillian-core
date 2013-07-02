@@ -145,10 +145,14 @@ public class ArchiveDeploymentExporterTestCase extends AbstractContainerTestBase
 
    private void fileShouldExist(boolean bol)
    {
-      File file = new File(EXPORT_PATH + TARGET_NAME + "_" + DEPLOYMENT_NAME + "_" + ARCHIVE_NAME);
+      File testableArchive = new File(EXPORT_PATH + TARGET_NAME + "_" + DEPLOYMENT_NAME + "_" + ARCHIVE_NAME);
+      File plainArchive = new File(EXPORT_PATH + TARGET_NAME + "_" + DEPLOYMENT_NAME + "_" + ARCHIVE_NAME + "_PLAIN");
 
-      Assert.assertEquals("File exists", bol, file.exists());
+      Assert.assertEquals("Testable archive exists", bol, testableArchive.exists());
+      Assert.assertEquals("Plain archive exists", bol, plainArchive.exists());
 
-      file.delete();
+      testableArchive.delete();
+      plainArchive.delete();
    }
+   
 }
